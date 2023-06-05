@@ -95,31 +95,109 @@ read -t 2
 
 #pantalla con boludeces
 clear
-echo 'Retrieving RAM...' | ${SLOWCAT} -b 30000000
-echo 'Recovering previous STATE' | ${SLOWCAT} -b 30000000
+echo "#45       11458     11009     11893    11972   11315"
+read -t 0.05
+clear
+echo "#45       11458     11009     11893    11972   11315"
+echo "PRT COM. 3.4.5. SECTRAN 9.4.3     PORT STAT: SD-345"
+read -t 0.09
+clear
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo "(311) 767-8739"
+echo "(311) 963-2364"
+rear -t 0.13
+clear
+
+echo ""
+echo ""
+echo ""                                                                         
+echo ""
+echo ""
+echo ""
+echo "(311) 767-8739"
+echo "(311) 963-2364"
+echo "-           PRT.STAT.                                    CRT. DEF." | ${SLOWCAT} -b 5000000
+echo "================================================================" | ${SLOWCAT} -b 5000000
+echo "FS0JJLSD: SDSDKJ: SBF.JSL:                          DKSJL: SKFJJ: SDKFJLJ:" | ${SLOWCAT} -b 5000000
+echo "SYSPROC FUNCT READY                            ACT NET READY" | ${SLOWCAT} -b 5000000
+echo "CPU AUTH RY-345-A08           SYSCOMP STATUS:  ALL PORTS ACTIVE" | ${SLOWCAT} -b 5000000
+echo "22/34534.98/3209                                          11CVB-2907-39490" | ${SLOWCAT} -b 5000000
+echo "(211) 936-2364" | ${SLOWCAT} -b 5000000
+read -t 0.1
+
+clear
+echo ""
+echo ""
+echo ""                                                                         
+echo ""
+echo ""
+echo ""
+echo "(311) 767-8739"
+echo "(311) 963-2364"
+echo "-           PRT.STAT.                                    CRT. DEF." 
+echo"================================================================"
+echo"FS0JJLSD: SDSDKJ: SBF.JSL:                          DKSJL: SKFJJ: SDKFJLJ:"
+echo "SYSPROC FUNCT READY                            ACT NET READY"
+echo "CPU AUTH RY-345-A08           SYSCOMP STATUS:  ALL PORTS ACTIVE"
+echo "22/34534.98/3209                                          11CVB-2907-39490"
+echo"(211) 936-2364"
+
+
+clear
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo "TWS45-36-F8-3456                  WOPR STATUS: TRAK OFF       PRON ACTIVE"
+echo "#45:45:45 11 WER: 45/29/81  XCOMP: 43239582   YCOMP:349322938D  ZCOMP:343906834"
+echo ""
+echo "-                  PRT.STAT                           CRT.DEF."
+echo "                  ============================================="
+echo "                     3453                              3594"
+read -t 0.1
+
+clear
+echo 'Retrieving RAM...' | ${SLOWCAT} -b 3000000000
+echo 'Recovering previous STATE' | ${SLOWCAT} -b 3000000000
 echo '                                                 OK' | ${SLOWCAT} -b 2000000
-echo 'Cleaning ROM' | ${SLOWCAT} -b 300000
+echo 'Cleaning ROM' | ${SLOWCAT} -b 30000000
 echo '                                                 FAIL' | ${SLOWCAT} -b 200000
-echo 'CHKSUM ER' | ${SLOWCAT} -b 9600
-echo 'Checking Subrutines                              OK' | ${SLOWCAT} -b 9600
-echo 'CHKSUM                                           OK' | ${SLOWCAT} -b 9600
-echo '' | ${SLOWCAT} -b 1000000
-echo '' | ${SLOWCAT} -b 1000000
-echo '' | ${SLOWCAT} -b 1000000
-echo '....................................................' | ${SLOWCAT} -b 4000000
+echo 'CHKSUM ER' | ${SLOWCAT} -b 96000
+echo 'Checking Subrutines                              OK' | ${SLOWCAT} -b 960000
+echo 'CHKSUM                                           OK' | ${SLOWCAT} -b 960000
+echo '' | ${SLOWCAT} -b 100000000
+echo '' | ${SLOWCAT} -b 100000000
+echo '' | ${SLOWCAT} -b 100000000
+echo '....................................................' | ${SLOWCAT} -b 4000000000
 echo 'WORP Online' | ${SLOWCAT} -b 100
-echo '' | ${SLOWCAT} -b 1000000
-echo '' | ${SLOWCAT} -b 1000000
-echo 'DARTHMOUTH Init' | ${SLOWCAT} -b 1440
+echo '' | ${SLOWCAT} -b 10000000
+echo '' | ${SLOWCAT} -b 10000000
+echo 'DARTHMOUTH Init' | ${SLOWCAT} -b 144000
 echo 'USER Logged                                      CHECK' | ${SLOWCAT} -b 6900
-echo '' | ${SLOWCAT} -b 100000
-echo '' | ${SLOWCAT} -b 100000
-echo 'Artificial Inteligence                                               OK' | ${SLOWCAT} -b 7000
-echo 'Artificial Inteligence Subrutine                                     ON' | ${SLOWCAT} -b 7000
-echo '' | ${SLOWCAT} -b 100000
-echo '' | ${SLOWCAT} -b 100000
-echo 'ARPANet Check' | ${SLOWCAT} -b 9600
-echo '                                                 OK' | ${SLOWCAT} -b 14400
+echo '' | ${SLOWCAT} -b 10000000
+echo '' | ${SLOWCAT} -b 10000000
+echo 'Artificial Inteligence                                               OK' | ${SLOWCAT} -b 700000
+echo 'Artificial Inteligence Subrutine                                     ON' | ${SLOWCAT} -b 700000
+echo '' | ${SLOWCAT} -b 10000000
+echo '' | ${SLOWCAT} -b 10000000
+echo 'ARPANet Check' | ${SLOWCAT} -b 96000
+echo '                                                 OK' | ${SLOWCAT} -b 1440000
 
 
 #greetings
@@ -281,7 +359,6 @@ read -t 6
 echo ''
 read -t 10
 clear
-
 
 
 #Final
