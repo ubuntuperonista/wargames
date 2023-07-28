@@ -28,39 +28,48 @@ touch ${DIR}/.usa.txt
 touch ${DIR}/.ussr.txt
 
 #crea fichero temporal con arte gráfica de las powers >> ${DIR}/.powers.txt
-echo " ,------~~v,                                _--^\\" > ${DIR}/.powers.txt
-echo " |'         п\   ,__/п||                  _/    /,_" >> ${DIR}/.powers.txt
-echo "/             \,/     /          ,,   ,,/^      п  vпv-__" >> ${DIR}/.powers.txt
-echo "|                    /         |'~^п                    п\\" >> ${DIR}/.powers.txt
-echo "\                   |          _/                     _  /^" >> ${DIR}/.powers.txt
-echo " \                 /          /                   ,~~^/|пп" >> ${DIR}/.powers.txt
-echo "  ^п~_             /          |          __,,  v__\   \/" >> ${DIR}/.powers.txt
-echo "      '~~,  ,п~п\ \            ^~       /    ~п  //" >> ${DIR}/.powers.txt
-echo "          \/     \/              \~,  ,/         п" >> ${DIR}/.powers.txt
-echo "                                    ~~" >> ${DIR}/.powers.txt
+FILE="${DIR}/.powers.txt"
+cat <<EOM >$FILE
+ ,------~~v,                                _--^\\
+ |'         п\   ,__/п||                  _/    /,_
+/             \,/     /          ,,   ,,/^      п  vпv-__
+|                    /         |'~^п                    п\\
+\                   |          _/                     _  /^
+ \                 /          /                   ,~~^/|пп
+  ^п~_             /          |          __,,  v__\   \/
+      '~~,  ,п~п\ \            ^~       /    ~п  //
+          \/     \/              \~,  ,/         п
+                                    ~~
+EOM
 
 # creates .usa.txt
-echo " ,------~~v," > "${DIR}"/.usa.txt
-echo " |'         п\   ,__/п||'"  >> ${DIR}/.usa.txt
-echo "/             \,/     /"  >> ${DIR}/.usa.txt
-echo "|                    /"  >> ${DIR}/.usa.txt
-echo "\                   |"  >> ${DIR}/.usa.txt
-echo " \                 /"  >> ${DIR}/.usa.txt
-echo "  ^п~_             /"  >> ${DIR}/.usa.txt
-echo "      '~~,  ,п~п\ \\"  >> ${DIR}/.usa.txt
-echo "          \/     \/"  >> ${DIR}/.usa.txt
+FILE="${DIR}/.usa.txt"
+cat <<EOM >$FILE
+ ,------~~v,
+ |'         п\   ,__/п||'
+/             \,/     /
+|                    /
+\                   |
+ \                 /
+  ^п~_             /
+      '~~,  ,п~п\ \\
+          \/     \/
+EOM
 
 #creates .ussr.txt
-echo "               _--^\\" > ${DIR}/.ussr.txt
-echo "             _/    /'_" >> ${DIR}/.ussr.txt
-echo "    ,,   ,,/^      п  vпv-__" >> ${DIR}/.ussr.txt
-echo "    /'~^п                    п\\" >> ${DIR}/.ussr.txt
-echo "  _/                     _  /^" >> ${DIR}/.ussr.txt
-echo " /                   ,~~^/|пп" >> ${DIR}/.ussr.txt
-echo "|          __,,  v__\   \/" >> ${DIR}/.ussr.txt
-echo " ^~       /    ~п  //" >> ${DIR}/.ussr.txt
-echo "   \~,  ,/         п" >> ${DIR}/.ussr.txt
-echo "      ~~" >> "${DIR}"/.ussr.txt
+FILE="${DIR}/.ussr.txt"
+cat <<EOM >$FILE
+               _--^\\
+             _/    /'_
+    ,,   ,,/^      п  vпv-__
+    /'~^п                    п\\
+  _/                     _  /^
+ /                   ,~~^/|пп
+|          __,,  v__\   \/
+ ^~       /    ~п  //
+   \~,  ,/         п
+      ~~
+EOM
 
 ## Toca la música
 #play ${MUSIC} -q &
@@ -359,6 +368,7 @@ read -t 6
 echo ''
 read -t 10
 clear
+
 
 
 #Final
