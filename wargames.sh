@@ -20,12 +20,16 @@ rm -f ${DIR}/.wargames.txt
 rm -f ${DIR}/.powers.txt
 rm -f ${DIR}/.usa.txt
 rm -f ${DIR}/.ussr.txt
+rm -f ${FIR}/.flpcc.txt
+rm -f ${FIR}/.flpp.txt
 
 #crea ficheros temporales del arte ASCII
 touch ${DIR}/.wargames.txt  #crea el fichero temporal del texto
 touch ${DIR}/.powers.txt
 touch ${DIR}/.usa.txt
 touch ${DIR}/.ussr.txt
+touch ${FIR}/.flpcc.txt
+touch ${FIR}/.flpp,txt
 
 #crea fichero temporal con arte gráfica de las powers >> ${DIR}/.powers.txt
 FILE="${DIR}/.powers.txt"
@@ -69,6 +73,50 @@ cat <<EOM >$FILE
  ^~       /    ~п  //
    \~,  ,/         п
       ~~
+EOM
+
+#creates .flpcc.txt
+FILE="$DIR/.flpcc.txt"
+cat <<EOM >$FILE
+FORCE LOSS PROJECTION - COMMAND & CONTROL                                       
+                                                                                
+COMPONENT       CONTROL AREA       % LOSS                                       
+                                                                                
+   SAC            HQ                 82                                         
+   SAC            8 AF               96                                         
+   SAC            1 STRAD            43                                         
+   SAC            15 AF              61                                         
+   SAC            1 CEG              77                                         
+   SAC            544 SIW            82                                         
+   SAC            3902 ABW           76                                         
+                                                                                
+   TAC            HQ                 74                                         
+   TAC            9 AF               96                                         
+   TAC            12 AF              83                                         
+   TAC            ADC                92                                         
+   TAC            SOUTH AIR          82
+EOM
+
+#creates .flpp.txt
+FILE="$DIR/.flpp.txt"
+cat <<EOM >$FILE
+                    FORCE LOSS PROJECTION -- PERSONNEL
+
+                USAF PERSONNEL BY COMMANDS, SOAs, AND DRUs
+
+MAJOR COMMANDS                           MILITARY    CIVILIAN    % LOSS
+
+Air Force Communications Command (AFCC)    41,393       6,406      47
+Air Force Logistics Command (AFLC)          9,936      80,949      96
+Air Force Systems Command (AFSC)           25,132      26,288      84
+Air Training Command (ATC)                 89,022      15,813      23
+Alaskan Air Command (AAC)                   7,347       1,125      46
+Electronic Security Command (ESC)          10,832         432      51
+Military Airlift Comand (MAC)              72,144      16,171      73
+Pacific Air Forces (PACAF)                 25,144       9,541      22
+Strategic Air Command (SAC)               104,985      13,484      21
+Tactical Air Command (TAC)                 99,765      11,851      58
+U.S. Air Forces in Europe (USAFEU)         56,844      11,642      79
 EOM
 
 ## Toca la música
@@ -356,7 +404,17 @@ cat ${DIR}/.powers.txt
 ${SPEAK} "The United States has trajectory headings of I C B ems incoming to Las Vegas and Seattle!"&
 echo "<US HAS TRAJECTORY HEADINGS OF ICBMS BOUND FOR LAS VEGAS AND SEATTLE>" | ${SLOWCAT} -b 9600
 echo "<SUBS REPRESENTED BY BLINKING DOTS ARE OFF US SHORELINES>" | ${SLOWCAT} -b 9600
-read -t15
+
+read -t6
+
+cat ${DIR}/.flpcc.txt | ${SLOWCAT} -b 130000
+read -t 5.1
+clear
+cat ${DIR}/.flpp.txt | ${SLOWCAT} -b 130000
+read -t 7.3
+clear
+
+cat ${DIR}/.powers.txt
 ${SPEAK} "Seattle has been obliterated by two I C B ems. 3.4 millons has been killed" &
 clear
 cat ${DIR}/.usa.txt
@@ -377,4 +435,6 @@ rm -f ${DIR}/.wargames.txt
 rm -f ${DIR}/.powers.txt
 rm -f ${DIR}/.usa.txt
 rm -f ${DIR}/.ussr.txt
+rm -f ${DIR}/.flpcc.txt
+rm -f ${DIR}/.flpp.txt
 rmdir ${DIR}
