@@ -9,7 +9,7 @@ slowcat espeak minimodem
 * Irrumpe telemáticamente en el mainframe WOPR falseando tu identidad.
 * **Vaporiza ciudades de los EE.UU y la URSS** con Misiles Atómicos Intercontinentales, Misiles Atómicos lanzados por Submarinos, y Bombarderos Estratégicos misilísticos. 
 * **Destruye el MANDO Y CONTROL** de los sistemas de defensa regionales del NORAD y la VVS.
-* **Induce protestas** masivas con QUINA COLUMNAS. Impula la DEMOCRACIA en la URSS y lucha por la JUSTICIA SOCIAL en los EE.UU.!
+* **Induce protestas** masivas con QUINTA COLUMNAS. Impula la DEMOCRACIA en la URSS y lucha por la JUSTICIA SOCIAL en los EE.UU.!
 * Da caza y **aplasta disidentes internos** y quinta-columnas con EDGAR Y BERIA. Captura a KAROL. ¡Pon al PAPA ante un pelotón de fusilamiento! ¡Elimina a MLK! Por tu mira sobre la frente de JFK!
 
 "La mejor jugada es no jugar"
