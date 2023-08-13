@@ -136,16 +136,16 @@ UNIDADES DESTRUIDAS        FUERZAS MILITARES          UNIDADES
  ESTADOS UNIDOS
 UNIDADES DESTRUIDAS        INFR. CIVIL                 UNIDADES
 -------------------------------------------------------------------
-      69%                  HOGARES
+      69%                  VIVIENDA
       22%                  COMUNICACIONES
       45%                  TRANSPORTE
-      70%                  RESERVAS ALIMENTICIAS
+      70%                  RESERVA ALIMENTICIA
       89%                  HOSPITALES
 
  ESTADOS UNIDOS            RECURSOS HUMANOS               SDV
 -------------------------------------------------------------------
   49 MILLONES              HERIDOS NO FATALES           65 MILLONES
-  72 MILLONES              POBLADORES MUERTOS          110 MILLONES
+  72 MILLONES              POBLACION MUERTOS           110 MILLONES
 EOM
 
 ## Toca la música
@@ -529,7 +529,7 @@ ${SPEAK} "Saludos. El juego de ayer fue interrumpido, aunque nuestro objetivo pr
 echo "SALUDOS"  | ${SLOWCAT} -b 1200
 read -t 1
 echo ''
-echo "EL JUEGO DE AYER FUER INTERRUMPIDO"  | ${SLOWCAT} -b 3000
+echo "EL JUEGO DE AYER FUE INTERRUMPIDO"  | ${SLOWCAT} -b 3000
 echo "AUNQUE NUESTRO OBJETIVO PRINCIPAL AUN NO HA SIDO LOGRADO." | ${SLOWCAT} -b 3000
 echo "LA SOLUCION ESTA CERCA." | ${SLOWCAT} -b 1200
 echo ''
@@ -538,7 +538,7 @@ echo "  TIEMPO RESTANTE ESTIMADO:   52:17:10" | ${SLOWCAT} -b 1200
 echo ''
 read -t 18
 
-echo 'Cual es el objetivo principal?' | ${SLOWCAT} -b 90
+echo 'Cuál es el objetivo principal?' | ${SLOWCAT} -b 90
 echo ''
 read -t 3
 ${SPEAK} "Ganar el juego."&
