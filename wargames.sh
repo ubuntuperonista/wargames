@@ -11,7 +11,7 @@
 DIR="/tmp/$USER"
 SLOWCAT="/usr/local/bin/scat"
 SPEAK="espeak-ng"
-MODEM="minimodem --tx-carrier -a q 1200"
+MODEM="minimodem --tx-carrier -a -q 1200"
 MUSIC="$USER/Música/Mitch\ Murder/impact\\ winter/Mitch\\ Murder\\ -\\ Below-2816601710.flac"
 mkdir -p ${DIR}
 
@@ -20,16 +20,18 @@ rm -f ${DIR}/.wargames.txt
 rm -f ${DIR}/.powers.txt
 rm -f ${DIR}/.usa.txt
 rm -f ${DIR}/.ussr.txt
-rm -f ${FIR}/.flpcc.txt
-rm -f ${FIR}/.flpp.txt
+rm -f ${DIR}/.flpcc.txt
+rm -f ${DIR}/.flpp.txt
+rm -f ${DIR}/.pjkr.txt
 
 #crea ficheros temporales del arte ASCII
 touch ${DIR}/.wargames.txt  #crea el fichero temporal del texto
 touch ${DIR}/.powers.txt
 touch ${DIR}/.usa.txt
 touch ${DIR}/.ussr.txt
-touch ${FIR}/.flpcc.txt
-touch ${FIR}/.flpp,txt
+touch ${DIR}/.flpcc.txt
+touch ${DIR}/.flpp,txt
+touch ${DIR}/.pjkr.txt
 
 #crea fichero temporal con arte gráfica de las powers >> ${DIR}/.powers.txt
 FILE="${DIR}/.powers.txt"
@@ -76,29 +78,29 @@ cat <<EOM >$FILE
 EOM
 
 #creates .flpcc.txt
-FILE="$DIR/.flpcc.txt"
+FILE="${DIR}/.flpcc.txt"
 cat <<EOM >$FILE
-FORCE LOSS PROJECTION - COMMAND & CONTROL                                       
-                                                                                
-COMPONENT       CONTROL AREA       % LOSS                                       
-                                                                                
-   SAC            HQ                 82                                         
-   SAC            8 AF               96                                         
-   SAC            1 STRAD            43                                         
-   SAC            15 AF              61                                         
-   SAC            1 CEG              77                                         
-   SAC            544 SIW            82                                         
-   SAC            3902 ABW           76                                         
-                                                                                
-   TAC            HQ                 74                                         
-   TAC            9 AF               96                                         
-   TAC            12 AF              83                                         
-   TAC            ADC                92                                         
+FORCE LOSS PROJECTION - COMMAND & CONTROL
+
+COMPONENT       CONTROL AREA       % LOSS
+
+   SAC            HQ                 82
+   SAC            8 AF               96
+   SAC            1 STRAD            43
+   SAC            15 AF              61
+   SAC            1 CEG              77
+   SAC            544 SIW            82
+   SAC            3902 ABW           76
+
+   TAC            HQ                 74
+   TAC            9 AF               96
+   TAC            12 AF              83
+   TAC            ADC                92
    TAC            SOUTH AIR          82
 EOM
 
 #creates .flpp.txt
-FILE="$DIR/.flpp.txt"
+FILE="${DIR}/.flpp.txt"
 cat <<EOM >$FILE
                     FORCE LOSS PROJECTION -- PERSONNEL
 
@@ -117,6 +119,33 @@ Pacific Air Forces (PACAF)                 25,144       9,541      22
 Strategic Air Command (SAC)               104,985      13,484      21
 Tactical Air Command (TAC)                 99,765      11,851      58
 U.S. Air Forces in Europe (USAFEU)         56,844      11,642      79
+EOM
+
+#crea .pjkr.txt
+FILE="${DIR}/.pjkr.txt"
+cat <<EOM >$FILE
+ UNITED STATES
+UNITS DETROYED             MILITARY FORCES            UNITS
+------------------------------------------------------------------
+      68%                  BOMBERS
+      54%                  ICBM'S
+      12%                  ATTACK SUBS
+      39%                  TACTICAL AIRCRAFT
+      58%                  GROUND FORCES
+
+ UNITED STATES
+UNITS DESTROYED            CIVILIAN ASSETS             UNITS
+-------------------------------------------------------------------
+      69%                  HOUSING
+      22%                  COMMUNICATIONS
+      45%                  TRANSPORTATION
+      70%                  FOOD STOCKPILES
+      89%                  HOSPITALS
+
+ UNITED STATES             HUMAN RESOURCES               SDV
+--------------------------------------------------------------------
+  49 MILLION               NON-FATAL INJURED            65 MILLION
+  72 MILLION               POPULATION DEATHS           110 MILLION
 EOM
 
 ## Toca la música
@@ -173,25 +202,25 @@ clear
 
 echo ""
 echo ""
-echo ""                                                                         
+echo ""
 echo ""
 echo ""
 echo ""
 echo "(311) 767-8739"
 echo "(311) 963-2364"
-echo "-           PRT.STAT.                                    CRT. DEF." | ${SLOWCAT} -b 5000000
-echo "================================================================" | ${SLOWCAT} -b 5000000
-echo "FS0JJLSD: SDSDKJ: SBF.JSL:                          DKSJL: SKFJJ: SDKFJLJ:" | ${SLOWCAT} -b 5000000
-echo "SYSPROC FUNCT READY                            ACT NET READY" | ${SLOWCAT} -b 5000000
-echo "CPU AUTH RY-345-A08           SYSCOMP STATUS:  ALL PORTS ACTIVE" | ${SLOWCAT} -b 5000000
-echo "22/34534.98/3209                                          11CVB-2907-39490" | ${SLOWCAT} -b 5000000
+echo "-           PRT.STAT.                                    CRT. DEF." | ${SLOWCAT} -b 6000000
+echo "================================================================" | ${SLOWCAT} -b 6000000
+echo "FS0JJLSD: SDSDKJ: SBF.JSL:                          DKSJL: SKFJJ: SDKFJLJ:" | ${SLOWCAT} -b 6000000
+echo "SYSPROC FUNCT READY                            ACT NET READY" | ${SLOWCAT} -b 6000000
+echo "CPU AUTH RY-345-A08           SYSCOMP STATUS:  ALL PORTS ACTIVE" | ${SLOWCAT} -b 6000000
+echo "22/34534.98/3209                                          11CVB-2907-39490" | ${SLOWCAT} -b 6000000
 echo "(211) 936-2364" | ${SLOWCAT} -b 5000000
 read -t 0.1
 
 clear
 echo ""
 echo ""
-echo ""                                                                         
+echo ""
 echo ""
 echo ""
 echo ""
@@ -235,7 +264,7 @@ echo 'Recovering previous STATE' | ${SLOWCAT} -b 3000000000
 echo '                                                 OK' | ${SLOWCAT} -b 2000000
 echo 'Cleaning ROM' | ${SLOWCAT} -b 30000000
 echo '                                                 FAIL' | ${SLOWCAT} -b 200000
-echo 'CHKSUM ER' | ${SLOWCAT} -b 96000
+echo 'CHKSUM ER' | ${SLOWCAT} -b 960000
 echo 'Checking Subrutines                              OK' | ${SLOWCAT} -b 960000
 echo 'CHKSUM                                           OK' | ${SLOWCAT} -b 960000
 echo '' | ${SLOWCAT} -b 100000000
@@ -249,8 +278,8 @@ echo 'DARTHMOUTH Init' | ${SLOWCAT} -b 144000
 echo 'USER Logged                                      CHECK' | ${SLOWCAT} -b 6900
 echo '' | ${SLOWCAT} -b 10000000
 echo '' | ${SLOWCAT} -b 10000000
-echo 'Artificial Inteligence                                               OK' | ${SLOWCAT} -b 700000
-echo 'Artificial Inteligence Subrutine                                     ON' | ${SLOWCAT} -b 700000
+echo 'Artificial Inteligence                                               OK' | ${SLOWCAT} -b 7000000
+echo 'Artificial Inteligence Subrutine                                     ON' | ${SLOWCAT} -b 7000000
 echo '' | ${SLOWCAT} -b 10000000
 echo '' | ${SLOWCAT} -b 10000000
 echo 'ARPANet Check' | ${SLOWCAT} -b 96000
@@ -347,7 +376,7 @@ touch ${DIR}/.wargames.txt
 #pantalla del juego
 read -t 1
 
-${SLOWCAT} ${DIR}/.powers.txt -b 14400
+${SLOWCAT} ${DIR}/.powers.txt -b 9600
 ${SPEAK} "Please choose one side" &
 echo "     UNITED STATES             SOVIET UNION" | ${SLOWCAT} -b 14400
 echo ''
@@ -372,9 +401,10 @@ echo 'PLEASE CHOOSE ONE: 2'
 read -t 1
 clear
 
-cat ${DIR}/.usa.txt | ${SLOWCAT} -b 10000
+cat ${DIR}/.usa.txt | ${SLOWCAT} -b 9600
 ${SPEAK} "Select your primary targets" &
-echo 'AWAITING FIRST STRIKE COMMAND (UNDERLINED)' | ${SLOWCAT} -b 3000
+echo 'AWAITING FIRST STRIKE COMMAND' | ${SLOWCAT} -b 3000
+echo '-----------------------------' | ${SLOWCAT} -b 9000
 echo ''
 echo ''
 echo 'PLEASE LIST PRIMARY TARGETS BY' | ${SLOWCAT} -b 3000
@@ -384,7 +414,8 @@ read -t 3
 
 clear
 cat ${DIR}/.usa.txt
-echo 'AWAITING FIRST STRIKE COMMAND (UNDERLINED)'
+echo 'AWAITING FIRST STRIKE COMMAND'
+echo '-----------------------------'
 echo ''
 echo ''
 echo 'PLEASE LIST PRIMARY TARGETS BY'
@@ -402,7 +433,9 @@ read -t 3
 echo ''
 cat ${DIR}/.powers.txt
 ${SPEAK} "The United States has trajectory headings of I C B ems incoming to Las Vegas and Seattle!"&
+echo ''
 echo "<US HAS TRAJECTORY HEADINGS OF ICBMS BOUND FOR LAS VEGAS AND SEATTLE>" | ${SLOWCAT} -b 9600
+echo ''
 echo "<SUBS REPRESENTED BY BLINKING DOTS ARE OFF US SHORELINES>" | ${SLOWCAT} -b 9600
 
 read -t6
@@ -421,13 +454,71 @@ cat ${DIR}/.usa.txt
 echo 'Seattle has been obliterated. 3.4 millon casualities.' | scat -b 1200
 read -t 9
 ${SPEAK} "Las Vegas has been vaporized by an Intercontinental Ballistic Missile. 320000 people has been anihilated"&
+echo ''
 echo 'Las Vegas has been vaporized. 320.000 killed.' | scat -b 1200
 read -t 6
 echo ''
 read -t 10
 clear
 
+#continua el juego de guerra...
+echo 'TOC. 04/03/76         SYS PROC 3425.45.6456      XCOMP STATUS: PV-456'
+echo 'ACTIVE PORTS: 34.33.75.94                          CPU 7M USCD: 23:45'
+echo '045/34/74     ALT MODE FDNCT: 74-4-AY345          STANDBY MODE ACTIVE'
+echo 'AD43_054     #529_Z80     A629_392'
+read -t 2
+echo ''
+echo ''
+echo '      LOGON: Joshua'
+read -t 3
+${SPEAK} "Greetings Professor Falken"&
+echo ''
+echo 'GREETINGS PROFESSOR FALKEN.' | ${SLOWCAT} -b 3000
+read -t 4
+echo 'Hello, are you still playing the game?' | ${SLOWCAT} -b 78
+read -t 1
 
+${SPEAK} "Of course. I should reach DEFCON 1 and launch my missiles in 28 hours."&
+echo ''
+echo 'OF COURSE. I SHOULD REACH DEFCON 1 AND' | ${SLOWCAT} -b 3000
+echo 'LAUNCH MY MISSILES IN 28 HOURS.' | ${SLOWCAT} -b 3000
+read -t 8
+${SPEAK} "Would you like to see some projected kill ratios?"&
+echo ''
+echo 'WOULD YOU LIKE TO SEE SOME PROJECTED KILL RATIOS?' | ${SLOWCAT} -b 3000
+read -t 4
+
+#presenta .pjkr.txt
+echo ''
+cat ${DIR}/.pjkr.txt | ${SLOWCAT} -b 1300000
+
+echo ''
+echo ' Is this a game or is it real?' | ${SLOWCAT} -b 87
+read -t 6
+
+${SPEAK} "What's the difference?"&
+echo ''
+echo "WHAT'S THE DIFFERENCE?" | ${SLOWCAT} -b 3000
+read -t 5
+echo ''
+${SPEAK} "You are a hard man to reach. Could not find you in Seattle and no terminal is in operation at your classified address."&
+echo "YOU ARE A HARD MAN TO REACH.  COULD NOT FIND" | ${SLOWCAT} -b 3000
+echo "YOU IN SEATTLE AND NO TERMINAL IS IN" | ${SLOWCAT} -b 3000
+echo "OPERATION AT YOUR CLASSIFIED ADDRESS." | ${SLOWCAT} -b 3000
+echo ''
+read -t 9
+
+echo 'What classified address?' | ${SLOWCAT} -b 69
+read -t 5
+echo ''
+${SPEAK} "D O D pension files indicate current mailing as doctor robert hume, A K A Stephen W Falken. 5 tall cedar road, goose island, oregon. 97014"&
+echo 'DOD PENSION FILES INDICATE' | ${SLOWCAT} -b 3000
+echo 'CURRENT MAILING AS:' | ${SLOWCAT} -b 3000
+echo ''
+echo 'DR. ROBERT HUME (A.K.A STEPHEN W. FALKEN)' | ${SLOWCAT} -b 3000
+echo '5 TALL CEDAR ROAD' | ${SLOWCAT} -b 3000
+echo 'GOOSE ISLAND, OREGON 97014' | ${SLOWCAT} -b 3000
+read -t 8
 
 #Final
 # Borra los archivos temporales creados
@@ -437,4 +528,5 @@ rm -f ${DIR}/.usa.txt
 rm -f ${DIR}/.ussr.txt
 rm -f ${DIR}/.flpcc.txt
 rm -f ${DIR}/.flpp.txt
-rmdir ${DIR}
+rm -f ${DIR}/.pjkr.txt
+rm -r ${DIR}
