@@ -143,7 +143,7 @@ UNITS DESTROYED            CIVILIAN ASSETS             UNITS
       89%                  HOSPITALS
 
  UNITED STATES             HUMAN RESOURCES               SDV
---------------------------------------------------------------------
+-------------------------------------------------------------------
   49 MILLION               NON-FATAL INJURED            65 MILLION
   72 MILLION               POPULATION DEATHS           110 MILLION
 EOM
@@ -406,7 +406,6 @@ ${SPEAK} "Select your primary targets" &
 echo 'AWAITING FIRST STRIKE COMMAND' | ${SLOWCAT} -b 3000
 echo '-----------------------------' | ${SLOWCAT} -b 9000
 echo ''
-echo ''
 echo 'PLEASE LIST PRIMARY TARGETS BY' | ${SLOWCAT} -b 3000
 echo 'CITY AND/OR COUNTY NAME:' | ${SLOWCAT} -b 3000
 echo ''
@@ -416,7 +415,6 @@ clear
 cat ${DIR}/.usa.txt
 echo 'AWAITING FIRST STRIKE COMMAND'
 echo '-----------------------------'
-echo ''
 echo ''
 echo 'PLEASE LIST PRIMARY TARGETS BY'
 echo 'CITY AND/OR COUNTY NAME:'
@@ -451,15 +449,17 @@ cat ${DIR}/.powers.txt
 ${SPEAK} "Seattle has been obliterated by two I C B ems. 3.4 millons has been killed" &
 clear
 cat ${DIR}/.usa.txt
-echo 'Seattle has been obliterated. 3.4 millon casualities.' | scat -b 1200
+echo 'SEATTLE HAS BEEN OBLITERATED. 3.4 MILLION CASUALITIES.' | scat -b 1200
 read -t 9
 ${SPEAK} "Las Vegas has been vaporized by an Intercontinental Ballistic Missile. 320000 people has been anihilated"&
 echo ''
-echo 'Las Vegas has been vaporized. 320.000 killed.' | scat -b 1200
+echo 'LAS VEGAS HAS BEEN VAPORIZED. 320.000 KILLED.' | scat -b 1200
 read -t 6
 echo ''
 read -t 10
 clear
+
+
 
 #continua el juego de guerra...
 echo 'TOC. 04/03/76         SYS PROC 3425.45.6456      XCOMP STATUS: PV-456'
@@ -474,32 +474,32 @@ read -t 3
 ${SPEAK} "Greetings Professor Falken"&
 echo ''
 echo 'GREETINGS PROFESSOR FALKEN.' | ${SLOWCAT} -b 3000
+echo ''
 read -t 4
 echo 'Hello, are you still playing the game?' | ${SLOWCAT} -b 78
 read -t 1
-
-${SPEAK} "Of course. I should reach DEFCON 1 and launch my missiles in 28 hours."&
 echo ''
+${SPEAK} "Of course. I should reach DEFCON 1 and launch my missiles in 28 hours."&
 echo 'OF COURSE. I SHOULD REACH DEFCON 1 AND' | ${SLOWCAT} -b 3000
 echo 'LAUNCH MY MISSILES IN 28 HOURS.' | ${SLOWCAT} -b 3000
+echo ''
 read -t 8
 ${SPEAK} "Would you like to see some projected kill ratios?"&
-echo ''
 echo 'WOULD YOU LIKE TO SEE SOME PROJECTED KILL RATIOS?' | ${SLOWCAT} -b 3000
-read -t 4
+echo ''
+read -t 5
 
 #presenta .pjkr.txt
-echo ''
 cat ${DIR}/.pjkr.txt | ${SLOWCAT} -b 1300000
-
 echo ''
-echo ' Is this a game or is it real?' | ${SLOWCAT} -b 87
-read -t 6
+read -t 8
+echo 'Is this a game or is it real?' | ${SLOWCAT} -b 87
+echo ''
+read -t 5
 
 ${SPEAK} "What's the difference?"&
-echo ''
 echo "WHAT'S THE DIFFERENCE?" | ${SLOWCAT} -b 3000
-read -t 5
+read -t 8
 echo ''
 ${SPEAK} "You are a hard man to reach. Could not find you in Seattle and no terminal is in operation at your classified address."&
 echo "YOU ARE A HARD MAN TO REACH.  COULD NOT FIND" | ${SLOWCAT} -b 3000
@@ -509,16 +509,38 @@ echo ''
 read -t 9
 
 echo 'What classified address?' | ${SLOWCAT} -b 69
-read -t 5
 echo ''
-${SPEAK} "D O D pension files indicate current mailing as doctor robert hume, A K A Stephen W Falken. 5 tall cedar road, goose island, oregon. 97014"&
+read -t 5
+${SPEAK} "D O D pension files indicate current mailing as: Doctor Robert Hume, A K A, Stephen W Falken. 5 tall cedar road, Goose Island, Oregon, 97014"&
 echo 'DOD PENSION FILES INDICATE' | ${SLOWCAT} -b 3000
 echo 'CURRENT MAILING AS:' | ${SLOWCAT} -b 3000
 echo ''
-echo 'DR. ROBERT HUME (A.K.A STEPHEN W. FALKEN)' | ${SLOWCAT} -b 3000
-echo '5 TALL CEDAR ROAD' | ${SLOWCAT} -b 3000
-echo 'GOOSE ISLAND, OREGON 97014' | ${SLOWCAT} -b 3000
-read -t 8
+echo 'DR. ROBERT HUME (A.K.A STEPHEN W. FALKEN)' | ${SLOWCAT} -b 1200
+echo '5 TALL CEDAR ROAD' | ${SLOWCAT} -b 1200
+echo 'GOOSE ISLAND, OREGON 97014' | ${SLOWCAT} -b 1200
+read -t 12
+
+clear
+read -t 3
+${SPEAK} "Greetings. Yesterday's game was interrupted, although our main goal has not yet been achieved. Solution is near. Game time: 31 hours, 12 minutes, 8 seconds. Estimated time remaining: 52 hours 17 minutes 10 seconds"&
+echo "GREETINGS"  | ${SLOWCAT} -b 1200
+read -t 1
+echo ''
+echo "YESTERDAY GAME WAS INTERRUPTED"  | ${SLOWCAT} -b 3000
+echo "ALTHOUGH OUR MAIN GOAL HAS NOT YET BEEN ACHIEVED." | ${SLOWCAT} -b 3000
+echo "SOLUTION IS NEAR." | ${SLOWCAT} -b 3000
+echo ''
+echo "                 GAME TIME:   31:12:08"  | ${SLOWCAT} -b 1200
+echo "  ESTIMATED TIME REMAINING:   52:17:10" | ${SLOWCAT} -b 1200
+echo ''
+read -t 14
+
+echo 'What is the primary goal?' | ${SLOWCAT} -b 90
+echo ''
+read -t 3
+${SPEAK} "To win the game."&
+echo "TO WIN THE GAME." | ${SLOWCAT} -b 1200
+read -t 5
 
 #Final
 # Borra los archivos temporales creados
@@ -530,3 +552,4 @@ rm -f ${DIR}/.flpcc.txt
 rm -f ${DIR}/.flpp.txt
 rm -f ${DIR}/.pjkr.txt
 rm -r ${DIR}
+clear
