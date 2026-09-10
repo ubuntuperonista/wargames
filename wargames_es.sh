@@ -23,6 +23,9 @@ rm -f ${DIR}/.ussr.txt
 rm -f ${DIR}/.flpcc.txt
 rm -f ${DIR}/.flpp.txt
 rm -f ${DIR}/.pjkr.txt
+rm -f ${DIR}/.regs.txt
+rm -f ${DIR}/.gamenu.txt
+rm -f ${DIR}/.schoolmenu.txt
 
 #crea ficheros temporales del arte ASCII
 touch ${DIR}/.wargames.txt  #crea el fichero temporal del texto
@@ -32,6 +35,58 @@ touch ${DIR}/.ussr.txt
 touch ${DIR}/.flpcc.txt
 touch ${DIR}/.flpp,txt
 touch ${DIR}/.pjkr.txt
+touch ${DIR}/.regs.txt
+touch ${DIR}/.gamenu.txt
+touch ${DIR}/.schoolmenu.txt
+
+#crea fichero temporal de menu escolar >> ${DIR}/.schoolmenu.txt
+FILE="${DIR}/.schoolmenu.txt"
+cat <<EOM >$FILE
+MENU
+1. INGRESAR DATA DE ESTUDIANTE
+2. BUSCAR UN ESTUDIANTE
+3. MOSTRAR REGISTRO COMPLETO DEL ESTUDIANTE
+4. SALIR
+
+SELECCIONE OPCION: 
+EOM
+
+#crea fichero temporal con juegos de WOPR >> ${DIR}/.gamenu.txt
+FILE="${DIR}/.games.txt"
+cat <<EOM >$FILE
+LABERINTO DE FALKEN
+BLACK JACK
+GIN RUMMY
+CORAZONES
+BRIDGE
+AJEDREZ
+POKER
+COMBATE DE CAZAS
+ENCUENTRO GUERRILLERO
+GUERRA DEL DESIERTO
+ACCIONES AIRE-TIERRA
+ENFRENTAMIENTO TACTICO DE TEATRO DE OPERACIONES
+ENFRENTAMIENTO QUIMICO Y BACTERIOLOGICO DE TEATRO DE OPERACIONES
+GUERRA TERMONUCLEAR GLOBAL
+EOM
+
+#crea fichero temporal con registros de notas >> ${DIR}/.regs.txt
+FILE="${DIR}/.regs.txt"
+cat <<EOM >$FILE
+Estudiante: Lightman, David L., S-202, BIOLOGIA 2, F, LIGGET, 3, 214
+Estudiante: Lightman, David L., E-314, INGLES 11B, D, TURMAN, 5, 172
+Estudiante: Lightman, David L., H-221, HISTORIA MUNDIAL 11B, C, DWYMER, 2, 108
+Estudiante: Lightman, David L., M-106, TRIG 2, B, DICKERSON, 4, 315
+Estudiante: Lightman, David L., PE-02, EDUCACION FISICA, C, COMSTOCK, 1, GYM
+Estudiante: Lightman, David L., M-122, CALCULO 1, B, LOGAN, 6, 240
+Estudiante: Mack, Jennifer K., S-202, BIOLOGIA 2, F, LIGGET, 3, 214
+Estudiante: Mack, Jennifer K., E-325, INGLES 11B, D, ROBINSON, 1, 114
+Estudiante: Mack, Jennifer K., H-221, HISTORIA MUNDIAL 11B, B, DWYMER, 2, 108
+Estudiante: Mack, Jennifer K., M-104, GEOMETRIA 2, D, HALQUIST, 4, 307
+Estudiante: Mack, Jennifer K., B-107, ECONOMIA, D, MARKS, 5, 122
+Estudiante: Mack, Jennifer K., PE-02, EDUCACION FISICA, C, COMSTOCK, 6, GYM
+EOM
+
 
 #crea fichero temporal con arte gráfica de las powers >> ${DIR}/.powers.txt
 FILE="${DIR}/.powers.txt"
