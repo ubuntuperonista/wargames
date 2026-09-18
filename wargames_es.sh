@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+#!/usr/bin/bash
 ## Wargames_es
 ## Simula la secuencia de la película Juegos de Guerra en castellano
 ## Copyleft Ubuntu Peronista
@@ -350,7 +351,7 @@ echo 'connect' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 55
 read -t 0.8
 echo ''
 read -t 0.15
-echo 'Conectado a huésped remoto. Presione Control-C para retornar' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+echo 'Huésped remoto contactado. Presione Control-C para retornar' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
 read -t 0.43
 echo 'Presione Control-? para lista de comandos'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
 echo ''
@@ -358,16 +359,16 @@ read -t 1.7
 echo 'ATDT3115554855' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 32
 read -t 0.7
 echo ''
-echo "PORTADORA DETECTADA" | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
+echo "DETECTANDO PORTADORA" | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
 read -t 0.25
-echo "DISCANDO" | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
+echo "DISCANDO..." | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
 read -t 2.6
 echo "CONECTANDO" | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
 read  -t 0.25
 
 #se loguea a la escuela
 clear
-cat ${DIRWG}/.pdpesc.txt | ${SLOWCAT} -b 300
+cat ${DIRWG}/.pdpesc.txt | ${SLOWCAT} -b 3000
 clear
 
 
@@ -398,7 +399,8 @@ read -t 0.14
 clear
 cat ${DIRWG}/.pdpesc.txt
 echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:  lapiz'
-read -t 0.26
+read -t 2.25
+echo "CONTRASEÑA VERIFICADA"
 
 
 
@@ -411,64 +413,55 @@ read -t 2
 
 #pide registro de lightman
 echo "ELIJA UNA OPCION: " | ${SLOWCAT} -b 1200
+read -t 0.5
 clear
 cat ${DIRWG}/.schoolmenu.txt
-read -t 0.5
 echo "ELIJA UNA OPCION: 2";
 # comienza a "teclear"
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: '
 read -t 0.32
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: l'
 read -t 0.21
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: li'
 read -t 0.25
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: lig'
 read -t 0.14
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: ligh'
 read -t 0.26
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: light'
 read -t 0.21
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: lightm'
 read -t 0.25
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: lightma'
 read -t 0.14
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
-echo "Ingrese solicitud de búsqueda: lightman"
+echo "Ingrese solicitud de búsqueda: Lightman, David L."
 read -t 1.26
 clear
 
@@ -505,7 +498,6 @@ cat ${DIRWG}/.schoolmenu.txt
 #### muestra menu
 
 read -t 1
-echo ''
 echo "ELIJA UNA OPCION: " | ${SLOWCAT} -b 1200
 clear
 cat ${DIRWG}/.schoolmenu.txt
@@ -514,57 +506,48 @@ echo "ELIJA UNA OPCION: 2";
 #### comienza a "teclear"
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: '
 read -t 0.32
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: m'
 read -t 0.21
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: ma'
 read -t 0.25
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mac'
 read -t 0.14
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack,'
 read -t 0.26
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack, '
 read -t 0.21
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack, j'
 read -t 0.25
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack, je'
 read -t 0.14
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
-echo "Ingrese solicitud de búsqueda: mack, jennifer"
+echo "Ingrese solicitud de búsqueda: Mack, Jennifer K."
 read -t 1.7
 clear
 
@@ -616,57 +599,48 @@ echo "ELIJA UNA OPCION: 2";
 #### comienza a "teclear"
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: '
 read -t 0.32
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: m'
 read -t 0.21
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: ma'
 read -t 0.25
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mac'
 read -t 0.14
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack,'
 read -t 0.26
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack, '
 read -t 0.21
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack, j'
 read -t 0.25
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
 echo 'Ingrese solicitud de búsqueda: mack, je'
 read -t 0.14
 clear
 cat ${DIRWG}/.schoolmenu.txt
-echo '';
 echo "ELIJA UNA OPCION: 2"
-echo "Ingrese solicitud de búsqueda: mack, jennifer"
+echo "Ingrese solicitud de búsqueda: Mack, Jennifer K."
 read -t 1.7
 
 clear
@@ -775,12 +749,12 @@ echo ""
 echo "(311) 767-8739"
 echo "(311) 963-2364"
 echo "-           PRT.STAT.                                    CRT. DEF." 
-echo"================================================================"
-echo"FS0JJLSD: SDSDKJ: SBF.JSL:                          DKSJL: SKFJJ: SDKFJLJ:"
+echo "================================================================"
+echo "FS0JJLSD: SDSDKJ: SBF.JSL:                          DKSJL: SKFJJ: SDKFJLJ:"
 echo "SYSPROC FUNCT READY                            ACT NET READY"
 echo "CPU AUTH RY-345-A08           SYSCOMP STATUS:  ALL PORTS ACTIVE"
 echo "22/34534.98/3209                                          11CVB-2907-39490"
-echo"(211) 936-2364"
+echo "(211) 936-2364"
 
 #pantalla de logueo WOPR
 clear
@@ -922,7 +896,7 @@ read -t 4
 clear
 touch ${DIRWG}/.wargames.txt
 
-#pantalla del juego GUERRA TERMONUCLEAR GLOBAL
+# pantallas del juego GUERRA TERMONUCLEAR GLOBAL
 read -t 1
 
 ${SLOWCAT} ${DIRWG}/.powers.txt -b 9600
@@ -1013,7 +987,7 @@ clear
 
 
 
-#continua el juego de guerra...
+# Continua el juego de guerra...
 echo 'TOC. 04/03/76         SYS PROC 3425.45.6456      XCOMP STATUS: PV-456'
 echo 'ACTIVE PORTS: 34.33.75.94                          CPU 7M USCD: 23:45'
 echo '045/34/74     ALT MODE FDNCT: 74-4-AY345          STANDBY MODE ACTIVE'
@@ -1041,7 +1015,7 @@ echo 'QUERRIA VER LAS PROYECCIONES DE MUERTES PROVOCADAS?' | ${SLOWCAT} -b 3000
 echo ''
 read -t 5
 
-#presenta .pjkr.txt
+## Presenta previsiones de aniquilamiento
 cat ${DIRWG}/.pjkr.txt | ${SLOWCAT} -b 130000
 echo ''
 read -t 12
@@ -1095,9 +1069,9 @@ ${SPEAK} "Ganar el juego."&
 echo "GANAR EL JUEGO." | ${SLOWCAT} -b 1200
 read -t 5
 
-#Final
-# Borra los archivos temporales creados
-#Si los hubiese, borra ficheros temporales previos
+# Final
+## Borra los archivos temporales creados
+## Si los hubiese, borra ficheros temporales previos
 rm -f ${DIRWG}/.wargames.txt
 rm -f ${DIRWG}/.cpm.txt
 rm -f ${DIRWG}/.kermit.txt
@@ -1116,4 +1090,13 @@ rm -f ${DIRWG}/.jenn1.txt
 rm -f ${DIRWG}/.jenn2.txt
 rm -f ${DIRWG}/.bloggs1.txt
 rm -r ${DIRWG}
-clear
+clear #borra la pantalla final
+
+echo "¿LE GUSTARIA JUGAR UN JUEGO?" | ${SLOWCAT} -b 1200
+read -t 4
+echo ""
+echo "UN JUEGO EXTRAÑO."
+read -t 2
+echo ""
+echo "LA UNICA JUGADA GANADORA ES"
+echo "NO JUGAR"
