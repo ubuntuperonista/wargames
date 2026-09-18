@@ -1,5 +1,5 @@
-#!/bin/bash
-## wWargames_es
+#!/usr/bin/bash
+## Wargames_es
 ## Simula la secuencia de la película Juegos de Guerra en castellano
 ## Copyleft Ubuntu Peronista
 ## requiere 
@@ -8,70 +8,168 @@
 ## Para GNU con Linux/BSD
 
 #define variables
-DIR="/tmp/$USER"
+DIRWG="/tmp/$USER"
 SLOWCAT="/usr/local/bin/scat"
 SPEAK="espeak -ves+male2 -s180 -p 45"
 MODEM="minimodem --tx-carrier -a -q 1200"
 MUSIC="$USER/Música/Mitch\ Murder/impact\\ winter/Mitch\\ Murder\\ -\\ Below-2816601710.flac"
-mkdir -p ${DIR}
 
-#Borra temporales previos si los hubiese
-rm -f ${DIR}/.wargames.txt
-rm -f ${DIR}/.powers.txt
-rm -f ${DIR}/.usa.txt
-rm -f ${DIR}/.ussr.txt
-rm -f ${DIR}/.flpcc.txt
-rm -f ${DIR}/.flpp.txt
-rm -f ${DIR}/.pjkr.txt
-rm -f ${DIR}/.regs.txt
-rm -f ${DIR}/.gamenu.txt
-rm -f ${DIR}/.schoolmenu.txt
+#Inicializa directorio de trabajo temporal
+mkdir -p ${DIRWG}
 
-#crea ficheros temporales del arte ASCII
-touch ${DIR}/.wargames.txt  #crea el fichero temporal del texto
-touch ${DIR}/.powers.txt
-touch ${DIR}/.usa.txt
-touch ${DIR}/.ussr.txt
-touch ${DIR}/.flpcc.txt
-touch ${DIR}/.flpp,txt
-touch ${DIR}/.pjkr.txt
-touch ${DIR}/.regs.txt
-touch ${DIR}/.gamenu.txt
-touch ${DIR}/.schoolmenu.txt
+#Si los hubiese, borra ficheros temporales previos
+rm -f ${DIRWG}/.wargames.txt
+rm -f ${DIRWG}/.cpm.txt
+rm -f ${DIRWG}/.kermit.txt
+rm -f ${DIRWG}/.pdpesc.txt
+rm -f ${DIRWG}/.powers.txt
+rm -f ${DIRWG}/.usa.txt
+rm -f ${DIRWG}/.ussr.txt
+rm -f ${DIRWG}/.flpcc.txt
+rm -f ${DIRWG}/.flpp.txt
+rm -f ${DIRWG}/.pjkr.txt
+rm -f ${DIRWG}/.regs.txt
+rm -f ${DIRWG}/.gamenu.txt
+rm -f ${DIRWG}/.schoolmenu.txt
+rm -f ${DIRWG}/.light1.txt
+rm -f ${DIRWG}/.jenn1.txt
+rm -f ${DIRWG}/.jenn2.txt
+rm -f ${DIRWG}/.bloggs1.txt
 
-#crea fichero temporal de menu escolar >> ${DIR}/.schoolmenu.txt
-FILE="${DIR}/.schoolmenu.txt"
+#inicializa ficheros temporales del arte ASCII
+touch ${DIRWG}/.cpm.txt           #CP/M
+touch ${DIRWG}/.kermit.txt        #programa kermit para CP/M
+touch ${DIRWG}/.pdpesc.txt        #login de PDP-11 escolar
+touch ${DIRWG}/.gamenu.txt        #menu de juegos de WOPR
+touch ${DIRWG}/.schoolmenu.txt    #menu de preguntas de bbs escolar
+touch ${DIRWG}/.light1.txt        #registro de calificaciones de David Lightman
+touch ${DIRWG}/.jenn1.txt         #registro de calificaciones de Jenniffer Mack
+touch ${DIRWG}/.jenn2.txt         #modificación de calificaciones de Jenniffer Mack
+touch ${DIRWG}/.bloggs1.txt       #creación de registro de calificaciones de Bloggs
+touch ${DIRWG}/.wargames.txt      #crea el fichero temporal del texto
+touch ${DIRWG}/.powers.txt        #mapas ascii de las potencias
+touch ${DIRWG}/.usa.txt           #mapa ascii de eeuu
+touch ${DIRWG}/.ussr.txt          #mapa ascii de urss
+touch ${DIRWG}/.flpcc.txt         #proyección de pérdidas unidades
+touch ${DIRWG}/.flpp.txt          #Proyeccion de perdidas personal
+touch ${DIRWG}/.pjkr.txt
+touch ${DIRWG}/.regs.txt
+
+#crea fichero temporal de menu escolar >> ${DIRWG}/.schoolmenu.txt
+FILE="${DIRWG}/.pdpesc.txt"
 cat <<EOM >$FILE
-MENU
-1. INGRESAR DATA DE ESTUDIANTE
-2. BUSCAR UN ESTUDIANTE
-3. MOSTRAR REGISTRO COMPLETO DEL ESTUDIANTE
-4. SALIR
+PDP 11/270 PRB TIP #45                                              TTY 34/984
+BIENVENIDO A LA RED DE DATOS DE EDUCACION DEL DISTRITO ESCOLAR DE SEATTLE
 
-SELECCIONE OPCION: 
 EOM
 
-#crea fichero temporal con juegos de WOPR >> ${DIR}/.gamenu.txt
-FILE="${DIR}/.games.txt"
+#crea fichero temporal de menu escolar >> ${DIRWG}/.schoolmenu.txt
+FILE="${DIRWG}/.schoolmenu.txt"
+cat <<EOM >$FILE
+MENU
+1. INGRESAR DATOS DE ESTUDIANTE
+2. BUSCAR UN ESTUDIANTE
+3. PRESENTAR DATOS DE ESTUDIANTE
+4. SALIR
+
+EOM
+
+#crea fichero con menu de juegos de WOPR >> ${DIRWG}/.gamenu.txt
+FILE="${DIRWG}/.games.txt"
 cat <<EOM >$FILE
 LABERINTO DE FALKEN
 BLACK JACK
 GIN RUMMY
-CORAZONES
+HEARTS
 BRIDGE
 AJEDREZ
 POKER
-COMBATE DE CAZAS
-ENCUENTRO GUERRILLERO
+AVIACION DE COMBATE
+ENFRENTAMIENTO DE GUERRILLAS
 GUERRA DEL DESIERTO
 ACCIONES AIRE-TIERRA
-ENFRENTAMIENTO TACTICO DE TEATRO DE OPERACIONES
-ENFRENTAMIENTO QUIMICO Y BACTERIOLOGICO DE TEATRO DE OPERACIONES
+CONFLICTO TACTICO OPERACIONAL
+GUERRA TACTICA BIOTOXICA Y QUIMICA
 GUERRA TERMONUCLEAR GLOBAL
 EOM
 
-#crea fichero temporal con registros de notas >> ${DIR}/.regs.txt
-FILE="${DIR}/.regs.txt"
+
+#crea menu lightman1
+FILE="${DIRWG}/.light1.txt"
+cat <<EOM >$FILE
+REGISTRO DE ESTUDIANTE: Lightman, David L.
+
+   CLASE #    TITULO DE CURSO      CALIF   PROFESOR     PERIODO    SALON
+--------------------------------------------------------------------------
+   S-202      BIOLOGIA 2           F       LIGGET       3          214
+   E-314      INGLES 11B           D       TURMAN       5          172
+   H-221      HISTORIA MUNDIAL 11B C       DWYMER       2          108
+   M-106      TRIG 2               B       DICKERSON    4          315
+   PE-02      EDUCACION FISICA     C       COMSTOCK     1          GYM
+   M-122      CALCULO 1            B       LOGAN        6          240
+
+EOM
+
+#crea menu jennifer
+FILE="${DIRWG}/.jenn1.txt"
+cat <<EOM >$FILE
+REGISTRO DE ESTUDIANTE: Mack, Jennifer K.
+
+   CLASE #    TITULO DE CURSO      CALIF   PROFESOR     PERIODO    SALON
+--------------------------------------------------------------------------
+   S-202      BIOLOGIA 2           F       LIGGET       3          214
+   E-325      INGLES 11B           A       ROBINSON     1          114
+   H-221      HISTORIA MUNDIAL 11B B       DWYMER       2          108
+   M-104      GEOMETRIA 2          D       HALQUIST     4          307
+   B-107      ECONOMIA             D       MARKS        5          122
+   PE-02      EDUCACION FISICA     C       COMSTOCK     1          GYM
+
+Opciones: E(ditar), B(orrar), R(etornar): e
+Ingrese número de clase para cambiar calificaciones: s-202
+Ingrese nuevas calificaciones: a
+Registro de estudiante actualizado exitosamente.
+EOM
+
+#crea registro truchado de jennifer
+FILE="${DIRWG}/.jenn2.txt"
+cat <<EOM >$FILE
+REGISTRO DE ESTUDIANTE: Mack, Jennifer K.
+
+   CLASE #    TITULO DE CURSO      CALIF   PROFESOR     PERIODO    SALON
+--------------------------------------------------------------------------
+   S-202      BIOLOGIA 2           A       LIGGET       3          214
+   E-325      INGLES 11B           A       ROBINSON     1          114
+   H-221      HISTORIA MUNDIAL 11B B       DWYMER       2          108
+   M-104      GEOMETRIA 2          D       HALQUIST     4          307
+   B-107      ECONOMIA             D       MARKS        5          122
+   PE-02      EDUCACION FISICA     C       COMSTOCK     1          GYM
+
+Opciones: E(ditar), B(orrar), R(etornar): e
+Ingrese número de clase para cambiar calificaciones: s-202
+Ingrese nuevas calificaciones: f
+Registro de estudiante actualizado exitosamente.
+EOM
+
+
+#crea menu bloggs
+FILE="${DIRWG}/.bloggs1.txt"
+cat <<EOM >$FILE
+REGISTRO DE ESTUDIANTE: Bloggs, J.
+
+   CLASE #    TITULO DE CURSO      CALIF   PROFESOR     PERIODO    SALON
+--------------------------------------------------------------------------
+   A-123      HABILIDADES DE VIDA  F       FRED         4          555
+
+Opciones: E(ditar), B(orrar), R(etornar): d
+Ingrese numero de clase para borrar registro: a-123
+Esta seguro que desea borrar este registro? (S/N): s
+Registro de estudiante borrado exitosamente.
+EOM
+
+
+
+#crea fichero temporal con registros de notas >> ${DIRWG}/.regs.txt
+FILE="${DIRWG}/.regs.txt"
 cat <<EOM >$FILE
 Estudiante: Lightman, David L., S-202, BIOLOGIA 2, F, LIGGET, 3, 214
 Estudiante: Lightman, David L., E-314, INGLES 11B, D, TURMAN, 5, 172
@@ -81,15 +179,17 @@ Estudiante: Lightman, David L., PE-02, EDUCACION FISICA, C, COMSTOCK, 1, GYM
 Estudiante: Lightman, David L., M-122, CALCULO 1, B, LOGAN, 6, 240
 Estudiante: Mack, Jennifer K., S-202, BIOLOGIA 2, F, LIGGET, 3, 214
 Estudiante: Mack, Jennifer K., E-325, INGLES 11B, D, ROBINSON, 1, 114
-Estudiante: Mack, Jennifer K., H-221, HISTORIA MUNDIAL 11B, B, DWYMER, 2, 108
+Estudiante: Mack, Jennifer K., H-221, HISTORIAL MUNDIAL 11B, B, DWYMER, 2, 108
 Estudiante: Mack, Jennifer K., M-104, GEOMETRIA 2, D, HALQUIST, 4, 307
 Estudiante: Mack, Jennifer K., B-107, ECONOMIA, D, MARKS, 5, 122
 Estudiante: Mack, Jennifer K., PE-02, EDUCACION FISICA, C, COMSTOCK, 6, GYM
 EOM
 
 
-#crea fichero temporal con arte gráfica de las powers >> ${DIR}/.powers.txt
-FILE="${DIR}/.powers.txt"
+
+
+#crea fichero temporal con arte gráfica de las powers >> ${DIRWG}/.powers.txt
+FILE="${DIRWG}/.powers.txt"
 cat <<EOM >$FILE
  ,------~~v,                                _--^\\
  |'         п\   ,__/п||                  _/    /,_
@@ -104,7 +204,7 @@ cat <<EOM >$FILE
 EOM
 
 # creates .usa.txt
-FILE="${DIR}/.usa.txt"
+FILE="${DIRWG}/.usa.txt"
 cat <<EOM >$FILE
  ,------~~v,
  |'         п\   ,__/п||'
@@ -118,7 +218,7 @@ cat <<EOM >$FILE
 EOM
 
 #creates .ussr.txt
-FILE="${DIR}/.ussr.txt"
+FILE="${DIRWG}/.ussr.txt"
 cat <<EOM >$FILE
                _--^\\
              _/    /'_
@@ -133,7 +233,7 @@ cat <<EOM >$FILE
 EOM
 
 #creates .flpcc.txt
-FILE="${DIR}/.flpcc.txt"
+FILE="${DIRWG}/.flpcc.txt"
 cat <<EOM >$FILE
 PROYECCION DE PERDIDAS DE FUERZAS - MANDO Y CONTROL
 
@@ -155,7 +255,7 @@ COMPONENTE    AREA DE CONTROL   % PERDIDAS
 EOM
 
 #creates .flpp.txt
-FILE="${DIR}/.flpp.txt"
+FILE="${DIRWG}/.flpp.txt"
 cat <<EOM >$FILE
                PROYECCION DE PERDIDA DE FUERZAS -- PERSONAL
 
@@ -177,13 +277,13 @@ Fuerzas Aéreas EE.UU. en Europa (USAFEU)   56,844      11,642      79
 EOM
 
 #crea .pjkr.txt
-FILE="${DIR}/.pjkr.txt"
+FILE="${DIRWG}/.pjkr.txt"
 cat <<EOM >$FILE
  ESTADOS UNIDOS
 UNIDADES DESTRUIDAS        FUERZAS MILITARES          UNIDADES
 ------------------------------------------------------------------
       68%                  BOMBARDEROS
-      54%                  MBIC'S
+      54%                  MBICs
       12%                  SUBMARINOS DE ATAQUE
       39%                  AVIACION TACTICA
       58%                  FUERZAS TERRESTRES
@@ -194,7 +294,7 @@ UNIDADES DESTRUIDAS        INFR. CIVIL                 UNIDADES
       69%                  VIVIENDA
       22%                  COMUNICACIONES
       45%                  TRANSPORTE
-      70%                  RESERVA ALIMENTICIA
+      70%                  RESERVAS ALIMENTICIAS
       89%                  HOSPITALES
 
  ESTADOS UNIDOS            RECURSOS HUMANOS               SDV
@@ -208,7 +308,215 @@ EOM
 #disown
 
 
-# Login screen
+### Inicia presentaciones
+
+### Minijuego de hackeo escolar
+
+## presenta pantalla de la IMSAI
+clear
+echo '64K CP/M VERS. 2.2. MCL030210-D-F8' | tee -a ${DIRWG}/.cpm.txt | ${SLOWCAT} -b 3000
+echo '' | tee -a ${DIRWG}/.cpm.txt | ${SLOWCAT} -b 3000
+echo 'A>' | tee -a ${DIRWG}/.cpm.txt | ${SLOWCAT} -b 3000
+
+###tira un directorio
+clear
+cat ${DIRWG}/.cpm.txt
+read -t 0.6
+echo "dir" | tee -a ${DIRWG}/.cpm.txt | ${SLOWCAT} -b 48
+
+##presenta el dir de CP/M
+clear
+cat ${DIRWG}/.cpm.txt
+
+echo 'A: BYE     COM : CLS      COM : DIALER  COM: DIR     COM'| tee -a ${DIRWG}/.cpm.txt |${SLOWCAT} -b 1200 
+echo 'A: KERMIT  COM' | tee -a ${DIRWG}/.cpm.txt |${SLOWCAT} -b 1200
+echo 'A>'| tee -a ${DIRWG}/.cpm.txt |${SLOWCAT} -b 1200
+
+## pide kermit
+read -t 0.4
+clear
+cat ${DIRWG}/.cpm.txt
+read -t 0.77
+echo 'kermit' | tee -a ${DIRWG}/.cpm.txt |${SLOWCAT} -b 39
+### inicia kermit
+clear
+read -t 0.3
+echo 'Kermit-80 v4.11 configurado para CP/M-80 con Terminal CRT Generica (Tonta)'| tee -a ${DIRWG}/.kermit.txt |${SLOWCAT} -b 9600
+echo 'type selected' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 9600
+echo '' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 1200
+read -t 0.3
+echo 'For help, type ? at any point in a command'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+echo 'Kermit-80   0I:>'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+## configura kermit
+echo '' | tee -a ${DIRWG}/.kermit.txt
+read -t 0.9
+echo 'set port uc1' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 44
+echo 'Kermit-80   0I:>' | tee -a ${DIRWG}/.kermit.txt
+read -t 0.95
+echo ''
+echo 'connect' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 55
+read -t 0.8
+echo ''
+read -t 0.15
+echo 'Connected to remote host.  Type Control-C to return' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+read -t 0.43
+echo 'type Control-? for command list'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+read -t 1.7
+echo 'ATDT3115554855' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 32
+read -t 0.7
+echo "CONNECTING"| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
+read -t 2.6
+
+
+#se loguea a la escuela
+clear
+cat ${DIRWG}/.pdpesc.txt | ${SLOWCAT} -b 300
+clear
+
+
+
+cat ${DIRWG}/.pdpesc.txt
+echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:' | ${SLOWCAT} -b 300
+read -t 4.5 # pausa pensando contraseña trucha
+clear
+cat ${DIRWG}/.pdpesc.txt
+echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:'
+# comienza a "teclear"
+clear
+cat ${DIRWG}/.pdpesc.txt
+echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:  l'
+read -t 0.32
+clear
+cat ${DIRWG}/.pdpesc.txt
+echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:  la'
+read -t 0.21
+clear
+cat ${DIRWG}/.pdpesc.txt
+echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:  lap'
+read -t 0.25
+clear
+cat ${DIRWG}/.pdpesc.txt
+echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:  lapi'
+read -t 0.14
+clear
+cat ${DIRWG}/.pdpesc.txt
+echo 'POR FAVOR INGRESE SU CONTRASEÑA DE USUARIO:  lapiz'
+read -t 0.26
+
+
+
+
+#muestra menu
+
+clear
+cat ${DIRWG}/.schoolmenu.txt | ${SLOWCAT} -b 1200
+read -t 2
+
+#pide registro de lightman
+echo '';
+echo "ELIJA UNA OPCION: " | ${SLOWCAT} -b 1200
+read -t 0.5
+echo "ELIJA UNA OPCION: 2";
+# comienza a "teclear"
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: '
+read -t 0.32
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: l'
+read -t 0.21
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: li'
+read -t 0.25
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: lig'
+read -t 0.14
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: ligh'
+read -t 0.26
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: light'
+read -t 0.21
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: lightm'
+read -t 0.25
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: lightma'
+read -t 0.14
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo "Ingrese solicitud de búsqueda: lightman"
+read -t 0.26
+echo ''
+
+#muestra registro de lightman
+cat ${DIRWG}/.light1.txt | ${SLOWCAT} -b 1200
+
+echo "Opciones: E(ditar), B(orrar), R(etornar): " | ${SLOWCAT} -b 300
+read -t 0.9
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: " | ${SLOWCAT} -b 300
+clear
+cat ${DIRWG}/.light1.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: s-202"
+read -t 2.3
+echo "Ingrese nuevas calificaciones: " | ${SLOWCAT} -b 300
+read -t 0.7
+cat ${DIRWG}/.light1.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: s-202"
+echo "Ingrese nuevas calificaciones: c"
+read -t 0.1
+echo "Registro de estudiante actualizado exitosamente."
+read -t 2
+#muestra menu
+
+read -t 1
+clear
+cat ${DIRWG}/.schoolmenu.txt
+
+#pide registro de jennifer
+echo "SELECT OPTION: 2"
+echo "Enter search query: mack"
+
+#muestra menu
+
+echo ${DIRWG}/.schoolmenu.txt
+
+#altera registro de jennifer poniendo A en biologia
+cat ${DIRWG}/.jenn1.txt
+
+read -t 2
+
+
+
+# Login screen del juego de GUERRA TERMONUCLEAR GLOBAL
 clear # borra la pantalla
 echo 'LOGON:'
 read -t 3 # pausa tres segundos
@@ -255,6 +563,7 @@ echo "(311) 963-2364"
 rear -t 0.13
 clear
 
+#segunda pantalla con boludeces
 echo ""
 echo ""
 echo ""
@@ -272,6 +581,7 @@ echo "22/34534.98/3209                                          11CVB-2907-39490
 echo "(211) 936-2364" | ${SLOWCAT} -b 5000000
 read -t 0.1
 
+#tercer pantalla con boludeces
 clear
 echo ""
 echo ""
@@ -289,7 +599,7 @@ echo "CPU AUTH RY-345-A08           SYSCOMP STATUS:  ALL PORTS ACTIVE"
 echo "22/34534.98/3209                                          11CVB-2907-39490"
 echo"(211) 936-2364"
 
-
+#pantalla de logueo WOPR
 clear
 echo ""
 echo ""
@@ -313,6 +623,7 @@ echo "                  ============================================="
 echo "                     3453                              3594"
 read -t 0.1
 
+#booteando WOPR
 clear
 echo 'Recuperando RAM...' | ${SLOWCAT} -b 3000000000
 echo 'Recobrando ESTADO previo' | ${SLOWCAT} -b 3000000000
@@ -344,81 +655,81 @@ echo '                                                 OK' | ${SLOWCAT} -b 14400
 #greetings
 clear
 ${SPEAK} "Saludos Profesor Falken" &
-echo 'SALUDOS PROFESOR FALKEN.' | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 3000
-echo '' | tee -a ${DIR}/.wargames.txt
+echo 'SALUDOS PROFESOR FALKEN.' | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 3000
+echo '' | tee -a ${DIRWG}/.wargames.txt
 read -t 4
 clear
 
-cat ${DIR}/.wargames.txt
-echo 'Hola.' | tee -a ${DIR}/.wargames.txt  | ${SLOWCAT} -b 30
-echo '' | tee -a ${DIR}/.wargames.txt
+cat ${DIRWG}/.wargames.txt
+echo 'Hola.' | tee -a ${DIRWG}/.wargames.txt  | ${SLOWCAT} -b 30
+echo '' | tee -a ${DIRWG}/.wargames.txt
 clear
 
-cat ${DIR}/.wargames.txt
+cat ${DIRWG}/.wargames.txt
 ${SPEAK} "Cómo se siente hoy?" &
-echo 'COMO SE SIENTE HOY?' | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 3000 
-echo '' | tee -a ${DIR}/.wargames.txt
+echo 'COMO SE SIENTE HOY?' | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 3000 
+echo '' | tee -a ${DIRWG}/.wargames.txt
 read -t 4
-echo "Estoy bien. Como está usted?" | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 70 
-echo '' | tee -a ${DIR}/.wargames.txt
+echo "Estoy bien. Como está usted?" | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 70 
+echo '' | tee -a ${DIRWG}/.wargames.txt
 read -t 3
 
 clear
-cat ${DIR}/.wargames.txt
+cat ${DIRWG}/.wargames.txt
 ${SPEAK} "Excelente. Ha pasado un largo tiempo. Puede explicar la remoción de su cuenta de usuario del 23 de junio de mil novescientos setenta y tres?" &
-echo "EXCELENTE. HA PASADO UN LARGO TIEMPO. PUEDE EXPLICAR" | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 3000
-echo "LA REMOCION DE SU CUENTA DE USUARIO EL 23/6/73?" | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 3000
-echo '' | tee -a ${DIR}/.wargames.txt
+echo "EXCELENTE. HA PASADO UN LARGO TIEMPO. PUEDE EXPLICAR" | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 3000
+echo "LA REMOCION DE SU CUENTA DE USUARIO DEL 23/6/73?" | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 3000
+echo '' | tee -a ${DIRWG}/.wargames.txt
 read -t 11
 
 clear
-cat ${DIR}/.wargames.txt
-echo 'La gente a veces comete errores.' | tee ${DIR}/.wargames.txt | ${SLOWCAT} -b 70
-#echo '' | tee ${DIR}/.wargames.txt
+cat ${DIRWG}/.wargames.txt
+echo 'La gente a veces comete errores.' | tee ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 70
+#echo '' | tee ${DIRWG}/.wargames.txt
 # (NOTE: in one scene, it appears that he typed
 # "mistak" instead of "mistakes.")
 read -t 4
 
 clear
 #empieza una rutina nueva y borra todo lo anterior de memoria
-rm ${DIR}/.wargames.txt
-touch ${DIR}/.wargames.txt
+rm ${DIRWG}/.wargames.txt
+touch ${DIRWG}/.wargames.txt
 read -t 1
-#echo '' | tee -a ${DIR}/.wargames.txt
+#echo '' | tee -a ${DIRWG}/.wargames.txt
 ${SPEAK} "Si, lo hacen." &
-echo 'SI, LO HACEN.' | tee ${DIR}/.wargames.txt | ${SLOWCAT} -b 1200
+echo 'SI, LO HACEN.' | tee ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 1200
 read -t 3
 clear
 
 #empieza una rutina nueva y borra todo lo anterior de memoria
-rm ${DIR}/.wargames.txt
-touch ${DIR}/.wargames.txt
+rm ${DIRWG}/.wargames.txt
+touch ${DIRWG}/.wargames.txt
 ${SPEAK} "Jugamos un juego?" &
-echo 'JUGAMOS UN JUEGO?' | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 3000
+echo 'JUGAMOS UN JUEGO?' | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 3000
 echo ''
-echo '' >> ${DIR}/.wargames.txt
+echo '' >> ${DIRWG}/.wargames.txt
 read -t 3
 clear
 
-cat ${DIR}/.wargames.txt
-echo 'Me encantaría. Que tal Guerra Termonuclear Global?' | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 70
+cat ${DIRWG}/.wargames.txt
+echo 'Me encantaría. Que tal Guerra Termonuclear Global?' | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 70
 echo ''
-echo '' >> ${DIR}/.wargames.txt
+echo '' >> ${DIRWG}/.wargames.txt
 read -t 4
 
 
 
 clear
-cat ${DIR}/.wargames.txt
+cat ${DIRWG}/.wargames.txt
 ${SPEAK} "No preferiría una buena partida de ajedrez?" &
-echo "NO PREFERIRÍA UNA BUENA PARTIDA DE AJEDREZ?" | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 3000
-echo '' | tee -a ${DIR}/.wargames.txt
+echo "NO PREFERIRÍA UNA BUENA PARTIDA DE AJEDREZ?" | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 3000
+echo '' | tee -a ${DIRWG}/.wargames.txt
 read -t 4
 echo ''
 clear
 
-cat ${DIR}/.wargames.txt
-echo "Más tarde. Juguemos Guerra Termonuclear Global." | tee -a ${DIR}/.wargames.txt | ${SLOWCAT} -b 70
+cat ${DIRWG}/.wargames.txt
+echo "Más tarde. Juguemos Guerra Termonuclear Global." | tee -a ${DIRWG}/.wargames.txt | ${SLOWCAT} -b 70
 read -t 1
 
 echo ''
@@ -426,12 +737,12 @@ ${SPEAK} 'Bueno' &
 echo "BUENO."
 read -t 4
 clear
-touch ${DIR}/.wargames.txt
+touch ${DIRWG}/.wargames.txt
 
-#pantalla del juego
+#pantalla del juego GUERRA TERMONUCLEAR GLOBAL
 read -t 1
 
-${SLOWCAT} ${DIR}/.powers.txt -b 9600
+${SLOWCAT} ${DIRWG}/.powers.txt -b 9600
 ${SPEAK} "Por favor escoja un bando." &
 echo "     ESTADOS UNIDOS             UNION SOVIETICA" | ${SLOWCAT} -b 14400
 echo ''
@@ -444,7 +755,7 @@ echo 'POR FAVOR ESCOJA UNO:'
 read -t 4
 
 clear
-cat ${DIR}/.powers.txt
+cat ${DIRWG}/.powers.txt
 echo "     ESTADOS UNIDOS             UNION SOVIETICA"
 echo ''
 echo "QUE BANDO DESEA?"
@@ -456,7 +767,7 @@ echo 'POR FAVOR ESCOJA UNO: 2'
 read -t 1
 clear
 
-cat ${DIR}/.usa.txt | ${SLOWCAT} -b 9600
+cat ${DIRWG}/.usa.txt | ${SLOWCAT} -b 9600
 ${SPEAK} "Seleccione sus objetivos principales" &
 echo 'AGUARDANDO ORDEN DE PRIMER ATAQUE' | ${SLOWCAT} -b 3000
 echo '---------------------------------' | ${SLOWCAT} -b 9000
@@ -467,7 +778,7 @@ echo ''
 read -t 3
 
 clear
-cat ${DIR}/.usa.txt
+cat ${DIRWG}/.usa.txt
 echo 'AGUARDANDO ORDEN DE PRIMER ATAQUE'
 echo '---------------------------------'
 echo ''
@@ -484,7 +795,7 @@ clear
 
 read -t 4
 echo ''
-cat ${DIR}/.powers.txt
+cat ${DIRWG}/.powers.txt
 ${SPEAK} "Los Estados Unidos están detectando una trayectoria de Misil Balístico Intercontinental en dirección a Las Vegas y Siatl!"&
 echo ''
 echo "<EE.UU. TIENE TRAYECTORIA DE ICBMs DIRIGIDOS A LAS VEGAS Y SEATTLE>" | ${SLOWCAT} -b 9600
@@ -496,17 +807,17 @@ read -t 7
 clear
 read -t 1
 
-cat ${DIR}/.flpcc.txt | ${SLOWCAT} -b 130000
+cat ${DIRWG}/.flpcc.txt | ${SLOWCAT} -b 130000
 read -t 5.1
 clear
-cat ${DIR}/.flpp.txt | ${SLOWCAT} -b 130000
+cat ${DIRWG}/.flpp.txt | ${SLOWCAT} -b 130000
 read -t 7.3
 clear
 
-cat ${DIR}/.powers.txt
+cat ${DIRWG}/.powers.txt
 ${SPEAK} "Seattle ha sido borrada del mapa por dos Misiles Balísticos Intercontinentales. 3,4 millones de personas han sido eliminadas" &
 clear
-cat ${DIR}/.usa.txt
+cat ${DIRWG}/.usa.txt
 echo 'SEATTLE HA SIDO DESTRUIDA. 3.4 MILLONES DE BAJAS.' | scat -b 1200
 read -t 9
 ${SPEAK} "Las Vegas ha sido vaporizada por un Misil Balístico Intercontinental. Trescientos veinte mil personas han sido aniquiladas"&
@@ -548,7 +859,7 @@ echo ''
 read -t 5
 
 #presenta .pjkr.txt
-cat ${DIR}/.pjkr.txt | ${SLOWCAT} -b 130000
+cat ${DIRWG}/.pjkr.txt | ${SLOWCAT} -b 130000
 echo ''
 read -t 12
 echo 'Esto es un juego o es real?' | ${SLOWCAT} -b 87
@@ -560,9 +871,10 @@ echo "CUAL SERÍA LA DIFERENCIA?" | ${SLOWCAT} -b 3000
 read -t 8
 echo ''
 ${SPEAK} "Es un hombre difícil de localizar. No pude encontrarlo en Siatel y no hay terminales operativas en su dirección clasificada."&
-echo "ES UN HOMBRE DIFICL DE LOCALIZAR.  NO PUDE ENCONTRARLO" | ${SLOWCAT} -b 3000
-echo "EN SEATTLE Y NO HAY TERMINALES OPERATIVAS" | ${SLOWCAT} -b 3000
-echo "EN SU DIRECCION CLASIFICADA." | ${SLOWCAT} -b 3000
+echo "ES UN HOMBRE DIFICIL DE LOCALIZAR." | ${SLOWCAT} -b 3000
+echo "NO PUDE ENCONTRARLO EN SEATTLE" | ${SLOWCAT} -b 3000
+echo "Y NO HAY TERMINALES OPERATIVAS" | ${SLOWCAT} -b 3000
+echo "EN SU DIRECCION CLASIFICADA" | ${SLOWCAT} -b 3000
 echo ''
 read -t 13
 
@@ -602,12 +914,23 @@ read -t 5
 
 #Final
 # Borra los archivos temporales creados
-rm -f ${DIR}/.wargames.txt
-rm -f ${DIR}/.powers.txt
-rm -f ${DIR}/.usa.txt
-rm -f ${DIR}/.ussr.txt
-rm -f ${DIR}/.flpcc.txt
-rm -f ${DIR}/.flpp.txt
-rm -f ${DIR}/.pjkr.txt
-rm -r ${DIR}
+#Si los hubiese, borra ficheros temporales previos
+rm -f ${DIRWG}/.wargames.txt
+rm -f ${DIRWG}/.cpm.txt
+rm -f ${DIRWG}/.kermit.txt
+rm -f ${DIRWG}/.pdpesc.txt
+rm -f ${DIRWG}/.powers.txt
+rm -f ${DIRWG}/.usa.txt
+rm -f ${DIRWG}/.ussr.txt
+rm -f ${DIRWG}/.flpcc.txt
+rm -f ${DIRWG}/.flpp.txt
+rm -f ${DIRWG}/.pjkr.txt
+rm -f ${DIRWG}/.regs.txt
+rm -f ${DIRWG}/.gamenu.txt
+rm -f ${DIRWG}/.schoolmenu.txt
+rm -f ${DIRWG}/.light1.txt
+rm -f ${DIRWG}/.jenn1.txt
+rm -f ${DIRWG}/.jenn2.txt
+rm -f ${DIRWG}/.bloggs1.txt
+rm -r ${DIRWG}
 clear
