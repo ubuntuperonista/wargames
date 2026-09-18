@@ -124,10 +124,6 @@ REGISTRO DE ESTUDIANTE: Mack, Jennifer K.
    B-107      ECONOMIA             D       MARKS        5          122
    PE-02      EDUCACION FISICA     C       COMSTOCK     1          GYM
 
-Opciones: E(ditar), B(orrar), R(etornar): e
-Ingrese número de clase para cambiar calificaciones: s-202
-Ingrese nuevas calificaciones: a
-Registro de estudiante actualizado exitosamente.
 EOM
 
 #crea registro truchado de jennifer
@@ -144,10 +140,6 @@ REGISTRO DE ESTUDIANTE: Mack, Jennifer K.
    B-107      ECONOMIA             D       MARKS        5          122
    PE-02      EDUCACION FISICA     C       COMSTOCK     1          GYM
 
-Opciones: E(ditar), B(orrar), R(etornar): e
-Ingrese número de clase para cambiar calificaciones: s-202
-Ingrese nuevas calificaciones: f
-Registro de estudiante actualizado exitosamente.
 EOM
 
 
@@ -188,7 +180,7 @@ EOM
 
 
 
-#crea fichero temporal con arte gráfica de las powers >> ${DIRWG}/.powers.txt
+#crea fichero temporal con arte gráfica de las potencias >> ${DIRWG}/.powers.txt
 FILE="${DIRWG}/.powers.txt"
 cat <<EOM >$FILE
  ,------~~v,                                _--^\\
@@ -257,7 +249,7 @@ EOM
 #creates .flpp.txt
 FILE="${DIRWG}/.flpp.txt"
 cat <<EOM >$FILE
-               PROYECCION DE PERDIDA DE FUERZAS -- PERSONAL
+              PROYECCION DE PERDIDAS -- PERSONAL DE FUERZAS
 
                PERSONAL DE LA FAEU POR MANDOS, SOAs y DRUs
 
@@ -279,7 +271,7 @@ EOM
 #crea .pjkr.txt
 FILE="${DIRWG}/.pjkr.txt"
 cat <<EOM >$FILE
- ESTADOS UNIDOS
+  ESTADOS UNIDOS
 UNIDADES DESTRUIDAS        FUERZAS MILITARES          UNIDADES
 ------------------------------------------------------------------
       68%                  BOMBARDEROS
@@ -288,7 +280,7 @@ UNIDADES DESTRUIDAS        FUERZAS MILITARES          UNIDADES
       39%                  AVIACION TACTICA
       58%                  FUERZAS TERRESTRES
 
- ESTADOS UNIDOS
+  ESTADOS UNIDOS
 UNIDADES DESTRUIDAS        INFR. CIVIL                 UNIDADES
 -------------------------------------------------------------------
       69%                  VIVIENDA
@@ -297,13 +289,13 @@ UNIDADES DESTRUIDAS        INFR. CIVIL                 UNIDADES
       70%                  RESERVAS ALIMENTICIAS
       89%                  HOSPITALES
 
- ESTADOS UNIDOS            RECURSOS HUMANOS               SDV
+  ESTADOS UNIDOS           RECURSOS HUMANOS               SDV
 -------------------------------------------------------------------
   49 MILLONES              HERIDOS NO FATALES           65 MILLONES
   72 MILLONES              POBLACION MUERTOS           110 MILLONES
 EOM
 
-## Toca la música
+## Reproduce la música
 #play ${MUSIC} -q &
 #disown
 
@@ -341,11 +333,11 @@ echo 'kermit' | tee -a ${DIRWG}/.cpm.txt |${SLOWCAT} -b 39
 ### inicia kermit
 clear
 read -t 0.3
-echo 'Kermit-80 v4.11 configurado para CP/M-80 con Terminal CRT Generica (Tonta)'| tee -a ${DIRWG}/.kermit.txt |${SLOWCAT} -b 9600
-echo 'type selected' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 9600
+echo 'Kermit-80 v4.11 configurado para CP/M-80 usando modelo de terminal'| tee -a ${DIRWG}/.kermit.txt |${SLOWCAT} -b 9600
+echo 'CRT Generica (Tonta)' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 9600
 echo '' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 1200
 read -t 0.3
-echo 'For help, type ? at any point in a command'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+echo 'Para obtener ayuda, presione ? en cualquier momento.'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
 echo 'Kermit-80   0I:>'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
 ## configura kermit
 echo '' | tee -a ${DIRWG}/.kermit.txt
@@ -358,15 +350,20 @@ echo 'connect' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 55
 read -t 0.8
 echo ''
 read -t 0.15
-echo 'Connected to remote host.  Type Control-C to return' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+echo 'Conectado a huésped remoto. Presione Control-C para retornar' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
 read -t 0.43
-echo 'type Control-? for command list'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+echo 'Presione Control-? para lista de comandos'| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 3000
+echo ''
 read -t 1.7
 echo 'ATDT3115554855' | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 32
 read -t 0.7
-echo "CONNECTING"| tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
+echo ''
+echo "PORTADORA DETECTADA" | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
+read -t 0.25
+echo "DISCANDO" | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
 read -t 2.6
-
+echo "CONECTANDO" | tee -a ${DIRWG}/.kermit.txt | ${SLOWCAT} -b 300
+read  -t 0.25
 
 #se loguea a la escuela
 clear
@@ -413,8 +410,9 @@ cat ${DIRWG}/.schoolmenu.txt | ${SLOWCAT} -b 1200
 read -t 2
 
 #pide registro de lightman
-echo '';
 echo "ELIJA UNA OPCION: " | ${SLOWCAT} -b 1200
+clear
+cat ${DIRWG}/.schoolmenu.txt
 read -t 0.5
 echo "ELIJA UNA OPCION: 2";
 # comienza a "teclear"
@@ -471,23 +469,25 @@ cat ${DIRWG}/.schoolmenu.txt
 echo '';
 echo "ELIJA UNA OPCION: 2"
 echo "Ingrese solicitud de búsqueda: lightman"
-read -t 0.26
-echo ''
+read -t 1.26
+clear
 
 #muestra registro de lightman
+clear
 cat ${DIRWG}/.light1.txt | ${SLOWCAT} -b 1200
-
 echo "Opciones: E(ditar), B(orrar), R(etornar): " | ${SLOWCAT} -b 300
 read -t 0.9
+clear
+cat ${DIRWG}/.light1.txt
 echo "Opciones: E(ditar), B(orrar), R(etornar): e"
 echo "Ingrese número de clase para cambiar calificaciones: " | ${SLOWCAT} -b 300
 clear
 cat ${DIRWG}/.light1.txt
 echo "Opciones: E(ditar), B(orrar), R(etornar): e"
 echo "Ingrese número de clase para cambiar calificaciones: s-202"
-read -t 2.3
 echo "Ingrese nuevas calificaciones: " | ${SLOWCAT} -b 300
-read -t 0.7
+read -t 2.3
+clear
 cat ${DIRWG}/.light1.txt
 echo "Opciones: E(ditar), B(orrar), R(etornar): e"
 echo "Ingrese número de clase para cambiar calificaciones: s-202"
@@ -495,25 +495,208 @@ echo "Ingrese nuevas calificaciones: c"
 read -t 0.1
 echo "Registro de estudiante actualizado exitosamente."
 read -t 2
-#muestra menu
 
-read -t 1
+#muestra menu
 clear
 cat ${DIRWG}/.schoolmenu.txt
 
-#pide registro de jennifer
-echo "SELECT OPTION: 2"
-echo "Enter search query: mack"
 
-#muestra menu
+## pide registro de jennifer
+#### muestra menu
 
-echo ${DIRWG}/.schoolmenu.txt
+read -t 1
+echo ''
+echo "ELIJA UNA OPCION: " | ${SLOWCAT} -b 1200
+clear
+cat ${DIRWG}/.schoolmenu.txt
+read -t 0.5
+echo "ELIJA UNA OPCION: 2";
+#### comienza a "teclear"
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: '
+read -t 0.32
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: m'
+read -t 0.21
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: ma'
+read -t 0.25
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mac'
+read -t 0.14
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack,'
+read -t 0.26
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack, '
+read -t 0.21
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack, j'
+read -t 0.25
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack, je'
+read -t 0.14
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo "Ingrese solicitud de búsqueda: mack, jennifer"
+read -t 1.7
+clear
+
+
+
 
 #altera registro de jennifer poniendo A en biologia
+clear
+cat ${DIRWG}/.jenn1.txt | ${SLOWCAT} -b 1200
+echo "Opciones: E(ditar), B(orrar), R(etornar): " | ${SLOWCAT} -b 300
+read -t 1.9
+clear
 cat ${DIRWG}/.jenn1.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: " | ${SLOWCAT} -b 300
+clear
+cat ${DIRWG}/.jenn1.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: s-202"
+echo "Ingrese nuevas calificaciones: " | ${SLOWCAT} -b 300
+read -t 2.3
+clear
+cat ${DIRWG}/.jenn1.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: s-202"
+echo "Ingrese nuevas calificaciones: a"
+read -t 0.1
+echo "Registro de estudiante actualizado exitosamente."
+read -t 2
 
 read -t 2
 
+## revisa que registro de jennifer esté bien alterado
+#muestra menu
+clear
+cat ${DIRWG}/.schoolmenu.txt
+
+
+## pide registro de jennifer
+#### muestra menu
+
+read -t 1
+echo ''
+echo "ELIJA UNA OPCION: " | ${SLOWCAT} -b 1200
+clear
+cat ${DIRWG}/.schoolmenu.txt
+read -t 0.5
+echo "ELIJA UNA OPCION: 2";
+#### comienza a "teclear"
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: '
+read -t 0.32
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: m'
+read -t 0.21
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: ma'
+read -t 0.25
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mac'
+read -t 0.14
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack,'
+read -t 0.26
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack, '
+read -t 0.21
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack, j'
+read -t 0.25
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo 'Ingrese solicitud de búsqueda: mack, je'
+read -t 0.14
+clear
+cat ${DIRWG}/.schoolmenu.txt
+echo '';
+echo "ELIJA UNA OPCION: 2"
+echo "Ingrese solicitud de búsqueda: mack, jennifer"
+read -t 1.7
+
+clear
+cat ${DIRWG}/.schoolmenu.txt
+cat ${DIRWG}/.jenn2.txt
+
+
+#vuelve a poner el registro de jennifer con una f en biología
+clear
+cat ${DIRWG}/.jenn2.txt | ${SLOWCAT} -b 1200
+echo "Opciones: E(ditar), B(orrar), R(etornar): " | ${SLOWCAT} -b 300
+read -t 1.9
+clear
+cat ${DIRWG}/.jenn2.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: " | ${SLOWCAT} -b 300
+clear
+cat ${DIRWG}/.jenn2.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: s-202"
+echo "Ingrese nuevas calificaciones: " | ${SLOWCAT} -b 300
+read -t 2.3
+clear
+cat ${DIRWG}/.jenn2.txt
+echo "Opciones: E(ditar), B(orrar), R(etornar): e"
+echo "Ingrese número de clase para cambiar calificaciones: s-202"
+echo "Ingrese nuevas calificaciones: f"
+read -t 0.1
+echo "Registro de estudiante actualizado exitosamente."
+read -t 2
 
 
 # Login screen del juego de GUERRA TERMONUCLEAR GLOBAL
