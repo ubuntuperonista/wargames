@@ -1,6 +1,5 @@
 #!/usr/bin/bash
-#!/usr/bin/bash
-## Wargames_es
+# Wargames_es
 ## Simula la secuencia de la película Juegos de Guerra en castellano
 ## Copyleft Ubuntu Peronista
 ## requiere 
